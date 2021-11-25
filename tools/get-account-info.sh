@@ -62,7 +62,7 @@ ACCOUNT_INFO_URLS_DICT_UREF=$(casper-client query-state \
   --key "hash-$CONTRACT_HASH" \
 | jq -rc '.result | .stored_value | .Contract | .named_keys | map(select(.name | contains("account-info-urls"))) | .[] .key')
 
-ACCOUNT_HASH=$(casper-client account-address -p $PUBLIC_KEY | sed -r 's/account-hash-//g')
+casper-client account-address --public-key 010E5669b070545E2b32BC66363b9D3D4390fcA56bf52A05F1411b7FA18ca311C7
 
 BASE_URL=$(casper-client get-dictionary-item \
   --node-address http://$NODE_ADDRESS:7777 \
